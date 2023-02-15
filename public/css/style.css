@@ -1,0 +1,223 @@
+/**
+ * GENERAL
+ */
+
+:root {
+    --color-primary: #0F2036;
+    --color-secondary: #6663FE;
+    --color-background: #1C3350;
+    --color-body: #FFF;
+}
+
+body {
+    font-family: Jost, sans-serif;
+    font-weight: 300;
+    background: var(--color-primary);
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary) 30%, var(--color-background) 100%);
+    height: 100vh;
+    color: var(--color-body);
+    margin: 0;
+    display: flex;
+}
+
+body > * {
+    height: 90vh;
+}
+
+h1 {
+    text-align: center;
+    border: 5px solid #0a1626;
+    padding: 5px;
+    background-color: #6663fe;
+}
+
+input, button {
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+}
+
+input {
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px solid #0a1626;
+    /* border: none; */
+    padding: 0 20px;
+    font-size: 1.3em;
+    color: var(--color-body);
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+input::placeholder {
+    color: rgba(127, 127, 127, .3);
+}
+
+button {
+    color: white;
+    background-color: var(--color-secondary);
+    font-size: 1.3em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/**
+ * WELCOME SCREEN
+ */
+
+.welcome-screen {
+    flex-grow: 1;
+    display: flex;
+    /* display: none; */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.welcome-screen form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+    /* align-items: flex-end; */
+}
+
+.welcome-screen form > * {
+    margin: 15px 0;
+}
+
+/**
+ * CHAT SCREEN
+ */
+
+.chat-screen {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100vw;
+    padding: 0 30px;
+}
+
+.messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+}
+.message {
+    align-self: flex-start;
+    /* width: 100%; */
+}
+
+.message.sender {
+    align-self: flex-end;
+}
+
+.message.sender span {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.message span {
+    display: inline-block;
+    background: rgba(255, 255, 255, .2);
+    
+    max-width: 150px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 1em;
+}
+
+.message img {
+    width: 30px;
+    display: inline-block;
+}
+
+.message-box {
+    /* justify-content: flex-end; */
+    margin-bottom: 15px;
+    display: flex;
+    width: 100%;
+}
+.message-box form {
+    width: 100%;
+    display: flex;
+}
+.message-box input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.chat-screen button {
+    padding: 0.5em 0.7em;
+}
+.chat-screen button span {
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+
+
+@keyframes slideOutRight {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        visibility: hidden;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.slideOutRight {
+    -webkit-animation-name: slideOutRight;
+    animation-name: slideOutRight;
+    animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+    animation-duration: .4s;
+}
+
+@keyframes slideInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+    animation-timing-function:  cubic-bezier(0.55, 0, 1, 0.45);
+    animation-duration: .6s;
+}
+
+.animated {
+    
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+  }
